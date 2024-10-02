@@ -20,7 +20,7 @@ export default function Home() {
   
   const exparr = getAllExperiences();
   const sociallinks: SocialLinks[] = scJson;
-    
+   console.log(sociallinks);
   return (
     <main>
       <DelayedSuspense delay={0}>

@@ -20,13 +20,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
       <head>
         <link rel="icon" href="/svgs/favicon.svg" type="image/svg" />
         {/* personaly google analytics */}
-        <GoogleAnalytics gaId=G-GCC3HZK8D4 />
+        <GoogleAnalytics gaId="G-GCC3HZK8D4" />
       </head>
 
       <body className={pagefont.className}  suppressHydrationWarning={true}>
