@@ -11,6 +11,10 @@
     {
         "name":"twitter",
         "link": "https://www.x.com/salakotalut"
+    },
+    {
+        "name":"blog",
+        "link": "https://blog.talut.tech"
     }
 
 ]
