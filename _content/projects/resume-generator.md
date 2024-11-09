@@ -1,6 +1,6 @@
 ---
 name: "Resume Generator"
-date: "2024-08-06"
+date: "2024-08-12"
 range: "Aug 2024"
 skills:
   - "HTML"

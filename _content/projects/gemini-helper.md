@@ -1,6 +1,6 @@
 ---
 name: "Gemini Helper"
-date: "2024-11-01"
+date: "2024-11-08"
 range: "Nov 2024"
 skills:
   - "HTML"

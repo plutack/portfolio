@@ -1,7 +1,7 @@
 ---
 name: "Frontpages"
-date: "2024-08-28"
-range: "Jul 2024 - Aug 2024"
+date: "2024-09-02"
+range: "Jul 2024 - Sept 2024"
 skills:
   - "Javascript"
   - "Typescript"

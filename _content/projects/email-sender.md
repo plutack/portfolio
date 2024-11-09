@@ -1,7 +1,7 @@
 ---
 name: "Email Sender"
-date: "2024-08-28"
-range: "Jul 2024 - Aug 2024"
+date: "2024-10-28"
+range: "Sept 2024 - Oct 2024"
 skills:
   - "Go"
   - "Typescript"
