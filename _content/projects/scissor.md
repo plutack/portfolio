@@ -1,20 +1,17 @@
 ---
 name: "Scissor"
-date: "2023-08-07"
+date: "2024-08-07"
 range: "Jul 2024 - Aug 2024"
 skills:
   - "PostgreSQL"
   - "Redis"
   - "nodeJS"
   - "Typescript"
-  - "Next.js"
-  - "API"
+  - "NextJS"
   - "Prisma"
-
 tags:
-  - "webapp"
-  - "CRUD"
-  - "Typescript"
+  - "Web App"
+  - "CRUD App"
 images:
   - "/images/scissor/landing.png"
   - "/gifs/scissor/home.png"
@@ -26,8 +23,8 @@ links:
   github: "https://github.com/plutack/scissor"
   live: "https://scissor.talut.tech"
 ---
-Scissor is a fully featured URL shortening service that offers custom links, QR code generation, and basic analytics to streamline link sharing and management. 
 
+Scissor is a fully featured URL shortening service that offers custom links, QR code generation, and basic analytics to streamline link sharing and management.
 
 Some key features of the project include:
 

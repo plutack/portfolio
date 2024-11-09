@@ -1,6 +1,6 @@
 ---
 name: "Frontpages"
-date: "2023-08-28"
+date: "2024-08-28"
 range: "Jul 2024 - Aug 2024"
 skills:
   - "Javascript"
@@ -14,9 +14,9 @@ skills:
   - "cron"
 
 tags:
-  - "webapp"
-  - "LLM API"
-  - "Javascript"
+  - "Web App"
+  - "CRUD App"
+  - "Generative AI"
 images:
   - "/images/frontpages/today.png"
   - "/images/frontpages/yesterday.png"

@@ -1,17 +1,17 @@
 ---
 name: "Resume Generator"
-date: "2022-08-06"
+date: "2024-08-06"
 range: "Aug 2024"
 skills:
-  - "Javascript"
   - "HTML"
   - "Markdown"
   - "CSS"
   - "YAML"
+  - "Pandoc"
+  - "WHTMLtoPDF"
 
 tags:
-  - "github actions"
-  - "CI/CD"
+  - "Github Actions"
 
 images:
   - "/images/resume-gen/raw.png"
