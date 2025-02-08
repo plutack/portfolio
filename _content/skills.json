@@ -1,5 +1,8 @@
 {
-  "Python": { "color": "#EBCB8B", "link": "https://www.python.org/" },
+  "Python": {
+    "color": "#EBCB8B",
+    "link": "https://www.python.org/"
+  },
   "HTML": {
     "color": "#BF616A",
     "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
@@ -8,19 +11,40 @@
     "color": "#8FBCBB",
     "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
+  "Go": {
+    "color": "#88C0D0",
+    "link": "https://golang.org/"
+  },
   "Javascript": {
     "color": "#EBCB8B",
     "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
-  "Git": { "color": "#BF616A", "link": "https://git-scm.com/" },
-  "Linux": { "color": "#D8DEE9", "link": "https://www.linux.org/" },
+  "Git": {
+    "color": "#BF616A",
+    "link": "https://git-scm.com/"
+  },
+  "Linux": {
+    "color": "#D8DEE9",
+    "link": "https://www.linux.org/"
+  },
   "Typescript": {
     "color": "#8FBCBB",
     "link": "https://www.typescriptlang.org/"
   },
-  "SQL": { "color": "#8FBCBB", "link": "https://en.wikipedia.org/wiki/SQL" },
-  "React": { "color": "#88C0D0", "link": "https://reactjs.org/" },
-  "NextJS": { "color": "#D8DEE9", "link": "https://nextjs.org/" },
-  "Docker": { "color": "#88C0D0", "link": "https://www.docker.com/" },
-  "Go": { "color": "#88C0D0", "link": "https://golang.org/" }
+  "SQL": {
+    "color": "#8FBCBB",
+    "link": "https://en.wikipedia.org/wiki/SQL"
+  },
+  "React": {
+    "color": "#88C0D0",
+    "link": "https://reactjs.org/"
+  },
+  "NextJS": {
+    "color": "#D8DEE9",
+    "link": "https://nextjs.org/"
+  },
+  "Docker": {
+    "color": "#88C0D0",
+    "link": "https://www.docker.com/"
+  }
 }
