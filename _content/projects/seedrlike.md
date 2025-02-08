@@ -1,7 +1,7 @@
 ---
-name: "Frontpages"
-date: "2024-09-02"
-range: "Jul 2024 - Sept 2024"
+name: "Seedrlike"
+date: "2025-01-02"
+range: "Jan 2025 - Feb 2025"
 skills:
   - "Go"
   - "HTMX"
@@ -24,7 +24,6 @@ images:
 shortDescription: "A web application for dowonloading torrents and uploading them to gofile."
 links:
   github: "https://github.com/plutack/seedrlike"
-  live: "https://torrent.talut.tech"
 ---
 
 Seedrlike is a personal replication of [seedr](https://seedr.cc). The web app can be used to download torrents while saving the download files to gofiles. The codebase implements an SQL database to keep track what has or is being downloaded. Another core technology was the use of websocket to get real time updates in form of torrent status, download speed rate, download progress and some other details to develop an intuitive design.
