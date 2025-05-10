@@ -9,4 +9,4 @@ skills:
   - "Go"
 ---
 
-- To be Added
+- Automated daily alarm sheet generation in xlsx format, reducing the manual generation time by 40%
