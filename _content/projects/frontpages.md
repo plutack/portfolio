@@ -26,7 +26,7 @@ images:
 shortDescription: "A web application designed to fetch the front pages of popular Nigerian newspapers, providing a snapshot of current headlines with a series of links  of related articles."
 links:
   github: "https://github.com/plutack/frontpages-backend"
-  live: "https://frontpages.talut.tech"
+  live: "https://frontpages.talut.xyz"
 ---
 
 Frontpages is a web application designed to fetch the front pages of popular Nigerian newspapers, providing a snapshot of current headlines with a series of links  of related articles.
