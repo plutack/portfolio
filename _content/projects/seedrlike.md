@@ -1,7 +1,7 @@
 ---
 name: "Seedrlike"
-date: "2025-01-02"
-range: "Jan 2025 - Feb 2025"
+date: "2026-06-21"
+range: "Jan 2025 - Present"
 skills:
   - "Go"
   - "HTMX"
@@ -21,14 +21,17 @@ tags:
 images:
   - "/images/seedrlike/seedrlike.png"
 
-shortDescription: "A web application for dowonloading torrents and uploading them to gofile."
+shortDescription: "A web app that lets you add magnet links and download torrents over HTTPS, with real-time progress streamed over websockets."
 links:
   github: "https://github.com/plutack/seedrlike"
+  live: "https://torrent.talut.xyz"
 ---
 
-Seedrlike is a personal replication of [seedr](https://seedr.cc). The web app can be used to download torrents while saving the download files to gofiles. The codebase implements an SQL database to keep track what has or is being downloaded. Another core technology was the use of websocket to get real time updates in form of torrent status, download speed rate, download progress and some other details to develop an intuitive design.
+Seedrlike is a personal replication of [seedr](https://seedr.cc). Add a magnet link and the torrent becomes available for download over HTTPS — no torrent client needed on the user's end. The codebase uses a MySQL database (managed with goose migrations and sqlc) to keep track of what has been or is being downloaded, and websockets push real-time updates — download progress, speed, and ETA — to drive an intuitive UI.
+
 Some key features of the project include:
 
-- Torrents download via magnet Link
-- Websockets for real-time updates about a torrent marked for download
-- Download history kept for available torrent folders.
+- Torrent downloads initiated via magnet links
+- Websockets streaming real-time progress, speed, and ETA (including upload-stage events)
+- Download history for completed torrent folders
+- Dockerized and configurable via direnv/envrc

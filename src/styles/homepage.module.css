@@ -1,221 +1,313 @@
-
 /* Main div */
 .homedivmain {
-  padding-left: var(--main-div-padding-left);
-  padding-right: var(--main-div-padding-left);
+    padding-left: var(--main-div-padding-left);
+    padding-right: var(--main-div-padding-left);
 }
 
 /* About Section */
 .aboutDiv {
-  font-size: var(--fsize-about);
-  margin-top: var(--normal-margin-top);
-  padding-top: 10px;
-  animation: fadeIn var(--normal-transition-time) ease-in-out 0s;
+    font-size: var(--fsize-about);
+    margin-top: var(--normal-margin-top);
+    padding-top: 10px;
+    animation: fadeIn var(--normal-transition-time) ease-in-out 0s;
 }
-
 
 /* Skills Section */
 .skillsDiv {
-  margin-top: var(--normal-margin-top);
-  max-width: 900px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+    margin-top: var(--normal-margin-top);
+    max-width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 .skillsDiv a:visited {
-  color: inherit;
+    color: inherit;
 }
 .skillsDiv a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 .skillsDiv a,
 .skillsDiv span {
-  font-size: var(--fsize-smol);
-  display: inline-block;
-  border-radius: 10px;
-  margin-left: 10px;
-  margin-top: 10px;
-  padding: 10px;
-  border: 1px solid;
-  text-decoration: none;
-  color: inherit;
-  animation: flipInY var(--smooth-transition-time) ease, fillBackground var(--smooth-transition-time) ease;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
+    font-size: var(--fsize-smol);
+    display: inline-block;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid;
+    text-decoration: none;
+    color: inherit;
+    animation:
+        flipInY var(--smooth-transition-time) ease,
+        fillBackground var(--smooth-transition-time) ease;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
 }
-
 
 /* Intro Section */
 .introDiv {
-
-  margin-top: var(--normal-margin-top);
-  animation: fadeInSlow var(--smooth-transition-time) ease;
+    margin-top: var(--normal-margin-top);
+    animation: fadeInSlow var(--smooth-transition-time) ease;
 }
 .introDiv span {
-  display: inline-block;
+    display: inline-block;
 }
 .introDiv h6 {
-  font-size: var(--fsize-smol);
-  display: inline;
+    font-size: var(--fsize-smol);
+    display: inline;
 }
 
 .introDiv span h3 {
-  font-size: var(--fsize-large);
-  display: inline;
+    font-size: var(--fsize-large);
+    display: inline;
 }
 
 .introDiv h4 {
-  /* color: var(--text-color-dark); */
-  font-size:  var(--fsize-mid);
+    /* color: var(--text-color-dark); */
+    font-size: var(--fsize-mid);
 }
 .introDiv h1 {
-  font-size: var(--fsize-xlarge);
+    font-size: var(--fsize-xlarge);
 }
 
 /* Contact Section */
 .contactDiv {
-  margin-top: var(--normal-margin-top);
-  animation: fadeIn2 var(--normal-transition-time) ease;
+    margin-top: var(--normal-margin-top);
+    animation: fadeIn2 var(--normal-transition-time) ease;
 }
 
 .contactDiv h3 {
-  display: inline;
-  font-size: var(--fsize-mid);
-  
+    display: inline;
+    font-size: var(--fsize-mid);
 }
 .contactDiv p {
-  display: inline;
-  font-size: var(--fsize-about);
+    display: inline;
+    font-size: var(--fsize-about);
 }
 
 .resumeBtn {
-  margin-top: 2em;
-  display: block;
-  width: max-content;
-  text-decoration: none;
-  font-size: var(--fsize-smoll);
-  border: 1px solid var(--text-color-dark);
-  color: var(--text-color-dark);
-  background-color: var(--secondary-color);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  transition:  all var(--base-transition-time) ease;
+    margin-top: 2em;
+    display: block;
+    width: max-content;
+    text-decoration: none;
+    font-size: var(--fsize-smoll);
+    border: 1px solid var(--text-color-dark);
+    color: var(--text-color-dark);
+    background-color: var(--secondary-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: all var(--base-transition-time) ease;
 }
 
 .contactDiv .resumeBtn:hover {
-  color: var(--hover-color);
-  border-color: var(--hover-color);
-  box-shadow: 0px 0px 2px 2px var(--hover-color);
+    color: var(--hover-color);
+    border-color: var(--hover-color);
+    box-shadow: 0px 0px 2px 2px var(--hover-color);
 }
 
 .emailLink {
-  display: inline-block;
-  text-decoration: underline;
-  padding-left: 3px;
-  padding-right: 3px;
-  color: var(--text-color);
-  transform: translateY(3px);
-  border-radius: 5px;
-  transition: transform var(--base-transition-time) ease, background-color var(--base-transition-time) ease-in;
+    display: inline-block;
+    text-decoration: underline;
+    padding-left: 3px;
+    padding-right: 3px;
+    color: var(--text-color);
+    transform: translateY(3px);
+    border-radius: 5px;
+    transition:
+        transform var(--base-transition-time) ease,
+        background-color var(--base-transition-time) ease-in;
 }
 .emailLink:visited,
 .resumeBtn:visited {
-  color: var(--text-color);
+    color: var(--text-color);
 }
 
-.emailLink:hover{
-  transform: translateY(0);
-  background-color: var(--highlight-color);
-  text-decoration: none;
+.emailLink:hover {
+    transform: translateY(0);
+    background-color: var(--highlight-color);
+    text-decoration: none;
 }
-
 
 /* Animations --------------------------------------------------------------- */
 
 /* For Intro */
 @keyframes fadeInSlow {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  30% {
-    opacity: 0; 
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    30% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* For about */
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
 
 /* For contact */
 @keyframes fadeIn2 {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
-
 
 /* For skills */
 @keyframes fillBackground {
-  0% {
-    background-size: 0% 100%;
-  }
-  100% {
-    background-size: 100% 100%;
-  }
+    0% {
+        background-size: 0% 100%;
+    }
+    100% {
+        background-size: 100% 100%;
+    }
 }
 
 @keyframes flipInY {
-  0% {
-      transform: perspective(400px) rotateY(90deg) translateY(-20px);
-      opacity: 0;
-  }
-  100% {
-      transform: perspective(400px) rotateY(0deg) translateY(0);
-      opacity: 1;
-  }
+    0% {
+        transform: perspective(400px) rotateY(90deg) translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: perspective(400px) rotateY(0deg) translateY(0);
+        opacity: 1;
+    }
 }
-
 
 /* Media Query -------------------------------------------------------------- */
 /* Media query for mobile devices */
 @media screen and (max-width: 1279px) {
-  .contactDiv h3 {
-    text-decoration: underline;
-    display: inline-block;
-  
-  }
-  .contactDiv p {
-    display: inline-block;
-  }
-
-  
+    .contactDiv h3 {
+        text-decoration: underline;
+        display: inline-block;
+    }
+    .contactDiv p {
+        display: inline-block;
+    }
 }
 
 @media screen and (max-height: 700px) {
-  .skillsDiv{
-    margin-top: var(--min-margin-top);
-  }
-  
+    .skillsDiv {
+        margin-top: var(--min-margin-top);
+    }
+}
+
+/* Projects Section */
+.projectsDiv {
+    margin-top: var(--normal-margin-top);
+    animation: fadeIn var(--normal-transition-time) ease-in-out 0s;
+}
+.projectsHeading {
+    font-size: var(--fsize-large);
+    margin: 0 0 0.2em;
+}
+.projectsSub {
+    font-size: var(--fsize-about);
+    color: var(--sub-text-color);
+    margin: 0 0 1.5em;
+}
+.projectsSub a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+.projectsSub a:hover {
+    color: var(--hover-color);
+    text-decoration: underline;
+}
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2em;
+    max-width: 1100px;
+}
+.projectCard {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--overlay-color);
+    transition:
+        transform var(--base-transition-time) ease,
+        border-color var(--base-transition-time) ease,
+        box-shadow var(--base-transition-time) ease;
+}
+.projectCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--hover-color);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+.projectCardImage {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    background-color: var(--secondary-color);
+}
+.projectCardBody {
+    padding: 0.7em 1em 1em;
+    display: flex;
+    flex-direction: column;
+}
+.projectCardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+.projectCardTitle {
+    font-size: var(--fsize-mid);
+    font-weight: bold;
+    color: var(--text-color);
+}
+.projectCardDuration {
+    font-size: var(--fsize-xsmol);
+    color: var(--sub-text-color);
+    margin-top: 2px;
+}
+.projectCardDesc {
+    font-size: var(--fsize-smol);
+    color: var(--text-color-dark);
+    margin: 0.6em 0 0;
+    line-height: 1.4;
+}
+.archivedBadge {
+    display: inline-block;
+    width: max-content;
+    font-size: var(--fsize-xsmol);
+    color: var(--sub-text-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 1px 6px;
+}
+
+@media screen and (max-width: 1279px) {
+    .projectsGrid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 0.9em;
+    }
+    .projectCardImage {
+        height: 110px;
+    }
 }

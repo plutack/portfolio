@@ -19,9 +19,9 @@ images:
   - "/gifs/scissor/single.png"
 
 shortDescription: "A sleek URL shortening service offering custom links, QR code generation, and basic analytics to streamline link sharing and management"
+archived: true
 links:
   github: "https://github.com/plutack/scissor"
-  live: "https://scissor.talut.xyz"
 ---
 
 Scissor is a fully featured URL shortening service that offers custom links, QR code generation, and basic analytics to streamline link sharing and management.

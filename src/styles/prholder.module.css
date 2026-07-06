@@ -5,7 +5,7 @@
     border: 1px solid var(--secondary-color);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    
+
     text-align: left;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,6 @@
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-
 
     animation: comeUP var(--normal-transition-time) ease;
 }
@@ -29,10 +28,9 @@
     }
 }
 
-.projectHolder:visited{
+.projectHolder:visited {
     color: inherit;
 }
-
 
 .Image {
     position: relative;
@@ -56,6 +54,16 @@
     font-size: var(--fsize-smol);
     color: var(--sub-text-color);
 }
+.projectHolder .archivedBadge {
+    display: inline-block;
+    width: max-content;
+    margin-left: 5px;
+    font-size: var(--fsize-xsmol);
+    color: var(--sub-text-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 1px 6px;
+}
 
 .overlayDiv {
     position: absolute;
@@ -67,7 +75,7 @@
     backdrop-filter: blur(10px);
     display: flex;
     justify-content: center;
-    
+
     opacity: 0;
     transition: opacity var(--base-transition-time) ease;
 }
@@ -75,8 +83,6 @@
 .overlayDiv:hover {
     opacity: 1;
 }
-
-
 
 .overlayDiv .ovdTitle {
     padding-top: 10px;
@@ -93,7 +99,7 @@
     align-items: center;
 }
 
-.overlayDiv .ovdSkills span{
+.overlayDiv .ovdSkills span {
     margin-left: 10px;
     background-color: transparent;
     font-size: var(--fsize-xsmol);
