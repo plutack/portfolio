@@ -3,22 +3,20 @@ import Image from "next/image";
 import { Project } from "@/types";
 import styles from "@/styles/homepage.module.css";
 
-export default function ProjectsSection(props: { projects: Project[] }) {
-    const { projects } = props;
-    const ordered = projects;
+export default function ProjectsSection({ projects }: { projects: Project[] }) {
+    const visibleProjects = projects.slice(0, 5);
 
     return (
-        <section id='projects' className={styles.projectsDiv}>
+        <section id="projects" className={styles.projectsDiv}>
             <h2 className={styles.projectsHeading}>My Projects</h2>
             <p className={styles.projectsSub}>
-                A selection of things I&apos;ve built.{" "}
-                <Link href="/projects">View all &rarr;</Link>
+                A selection of things I&apos;ve built.
             </p>
             <div className={styles.projectsGrid}>
-                {ordered.map((project, index) => (
+                {visibleProjects.map((project, index) => (
                     <Link
                         key={project.slug}
-                        href={`/projects#${projects.indexOf(project)}`}
+                        href={`/projects#${project.slug}`}
                         className={styles.projectCard}
                     >
                         <div className={styles.projectCardImage}>
@@ -26,7 +24,9 @@ export default function ProjectsSection(props: { projects: Project[] }) {
                                 src={project.images[0]}
                                 alt={project.name}
                                 fill
-                                sizes="(max-width: 768px) 100vw, 33vw"
+                                sizes={index === 0
+                                    ? "(max-width: 768px) 100vw, 90vw"
+                                    : "(max-width: 768px) 100vw, 45vw"}
                                 priority={index === 0}
                             />
                         </div>
@@ -41,6 +41,11 @@ export default function ProjectsSection(props: { projects: Project[] }) {
                     </Link>
                 ))}
             </div>
+            {projects.length > visibleProjects.length && (
+                <Link href="/projects" className={styles.projectsMoreLink}>
+                    View all projects
+                </Link>
+            )}
         </section>
     );
 }

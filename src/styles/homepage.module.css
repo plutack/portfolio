@@ -110,6 +110,17 @@
   min-width: 0;
 }
 
+.introProjectLink {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+.introProjectLink:visited {
+  color: inherit;
+}
+
 .introVisualLabel {
   margin-bottom: 0.75rem;
   color: var(--sub-text-color);
@@ -124,6 +135,19 @@
   border-radius: 4px;
   background: var(--overlay-color);
   box-shadow: 20px 24px 0 rgba(67, 76, 94, 0.45);
+  transition: transform var(--base-transition-time) ease, border-color var(--base-transition-time) ease, box-shadow var(--base-transition-time) ease;
+}
+
+.introProjectLink:hover .introImage,
+.introProjectLink:focus-visible .introImage {
+  transform: translateY(-4px);
+  border-color: var(--hover-color);
+  box-shadow: 20px 28px 0 rgba(67, 76, 94, 0.55);
+}
+
+.introProjectLink:focus-visible .introImage {
+  outline: 2px solid var(--skill-box-color);
+  outline-offset: 4px;
 }
 
 .introImage img,
@@ -132,17 +156,45 @@
 }
 
 .introCaption {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 1.5rem;
   color: var(--sub-text-color);
   font-size: 0.72rem;
 }
 
-.introCaption span:first-child {
+.introCaptionCopy {
+  min-width: 0;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.introCaptionCopy span:first-child {
   color: var(--text-color);
+  font-size: 0.9rem;
   font-weight: 700;
+}
+
+.introCaptionCopy span:last-child {
+  max-width: 52ch;
+  line-height: 1.5;
+}
+
+.introProjectCue {
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid var(--hover-color);
+  color: var(--hover-color);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color var(--base-transition-time) ease, border-color var(--base-transition-time) ease;
+}
+
+.introProjectLink:hover .introProjectCue,
+.introProjectLink:focus-visible .introProjectCue {
+  border-color: var(--skill-box-color);
+  color: var(--skill-box-color);
 }
 
 .aboutDiv {
@@ -201,11 +253,6 @@
   line-height: 1.6;
 }
 
-.projectsSub a {
-  color: var(--hover-color);
-  text-decoration: none;
-}
-
 .projectsGrid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -225,11 +272,7 @@
 }
 
 .projectCard:first-child {
-  grid-column: span 7;
-}
-
-.projectCard:nth-child(2) {
-  grid-column: span 5;
+  grid-column: span 12;
 }
 
 .projectCard:visited {
@@ -287,6 +330,37 @@
   border-radius: 3px;
   color: var(--sub-text-color);
   font-size: 0.62rem;
+}
+
+.projectsMoreLink {
+  width: max-content;
+  min-height: 44px;
+  margin-top: 1.25rem;
+  padding: 0.72rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: transform var(--base-transition-time) ease, border-color var(--base-transition-time) ease, color var(--base-transition-time) ease;
+}
+
+.projectsMoreLink:visited {
+  color: var(--text-color);
+}
+
+.projectsMoreLink:hover,
+.projectsMoreLink:focus-visible {
+  border-color: var(--hover-color);
+  color: var(--hover-color);
+  transform: translateY(-2px);
+}
+
+.projectsMoreLink:active {
+  transform: translateY(1px);
 }
 
 .contactDiv {
@@ -360,9 +434,13 @@
   }
 
   .introCaption {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.35rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.85rem;
+  }
+
+  .introProjectCue {
+    width: max-content;
   }
 
   .aboutDiv {

@@ -4,17 +4,17 @@ import styles from "@/styles/prholder.module.css";
 
 export default function ProjectHolder({
   project,
-  projectKey,
+  projectSlug,
   priority = false,
 }: {
   project: Project;
-  projectKey: number;
+  projectSlug: string;
   priority?: boolean;
 }) {
   const visibleSkills = project.skills.slice(0, 5);
 
   return (
-    <a className={styles.projectHolder} href={`/projects#${projectKey}`}>
+    <a className={styles.projectHolder} href={`/projects#${projectSlug}`}>
       <div className={styles.Image}>
         <Image
           src={project.images[0]}

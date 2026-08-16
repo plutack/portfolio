@@ -14,16 +14,25 @@ import { SocialLinks } from "@/types";
 import scJson from "@/../_content/socials.json";
 import Intro from "@/components/_homepage/intro";
 
+const FEATURED_PROJECT_SLUG = "nadbooks";
+
 export default function Home() {
   const exparr = getAllExperiences();
   const projects = getAllProjects();
+  const featuredProject =
+    projects.find((project) => project.slug === FEATURED_PROJECT_SLUG) ?? projects[0];
   const sociallinks: SocialLinks[] = scJson;
+
+  if (!featuredProject) {
+    throw new Error("The homepage requires at least one project in _content/projects.");
+  }
+
   return (
     <main>
       <Navbar to_path="/projects" name="Projects" />
       <HomePage
         sections={{
-          home: <Intro />,
+          home: <Intro project={featuredProject} />,
           projects: <ProjectsSection projects={projects} />,
           about: <About />,
           skills: <Skills />,

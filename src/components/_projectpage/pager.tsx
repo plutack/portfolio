@@ -9,12 +9,12 @@ import ProjectLinks from "@/components/_projectpage/projectlinks";
 
 export default function Pager({
   project,
-  previousProjectIndex,
-  nextProjectIndex,
+  previousProjectSlug,
+  nextProjectSlug,
 }: {
   project: Project;
-  previousProjectIndex: number | null;
-  nextProjectIndex: number | null;
+  previousProjectSlug: string | null;
+  nextProjectSlug: string | null;
 }) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const imageCount = project.images.length;
@@ -28,10 +28,10 @@ export default function Pager({
       <nav className={styles.navBar} aria-label="Project navigation">
         <a href="/projects">EXIT</a>
         <div className={styles.arrowContainer}>
-          {previousProjectIndex !== null ? (
+          {previousProjectSlug !== null ? (
             <a
               className={styles.leftButton}
-              href={`/projects#${previousProjectIndex}`}
+              href={`/projects#${previousProjectSlug}`}
               aria-label="Previous project"
             >
               <em aria-hidden="true" />
@@ -39,10 +39,10 @@ export default function Pager({
           ) : (
             <span className={styles.leftButton} aria-hidden="true" />
           )}
-          {nextProjectIndex !== null ? (
+          {nextProjectSlug !== null ? (
             <a
               className={styles.rightButton}
-              href={`/projects#${nextProjectIndex}`}
+              href={`/projects#${nextProjectSlug}`}
               aria-label="Next project"
             >
               <em aria-hidden="true" />

@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
+import { Project } from "@/types";
 import styles from "@/styles/homepage.module.css";
 
-export default function Intro() {
+export default function Intro({ project }: { project: Project }) {
   return (
     <section id="intro" className={styles.introDiv}>
       <div className={styles.introCopy}>
@@ -17,19 +19,24 @@ export default function Intro() {
       </div>
       <div className={styles.introVisual}>
         <div className={styles.introVisualLabel}>Selected project</div>
-        <div className={styles.introImage}>
-          <Image
-            src="/images/nadbooks/landing.png"
-            alt="Nadbooks web application"
-            fill
-            priority
-            sizes="(max-width: 767px) 100vw, 48vw"
-          />
-        </div>
-        <div className={styles.introCaption}>
-          <span>Nadbooks</span>
-          <span>API and product engineering</span>
-        </div>
+        <Link className={styles.introProjectLink} href={`/projects#${project.slug}`}>
+          <div className={styles.introImage}>
+            <Image
+              src={project.images[0]}
+              alt={project.name}
+              fill
+              priority
+              sizes="(max-width: 767px) 100vw, 48vw"
+            />
+          </div>
+          <div className={styles.introCaption}>
+            <div className={styles.introCaptionCopy}>
+              <span>{project.name}</span>
+              <span>{project.shortDescription}</span>
+            </div>
+            <span className={styles.introProjectCue}>View project</span>
+          </div>
+        </Link>
       </div>
     </section>
   );

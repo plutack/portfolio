@@ -9,7 +9,7 @@ import Pager from "@/components/_projectpage/pager";
 
 export default function ProjectsPage({ projects }: { projects: Project[] }) {
   const [activeTag, setActiveTag] = useState("");
-  const [activeProject, setActiveProject] = useState(-1);
+  const [activeProjectSlug, setActiveProjectSlug] = useState("");
   const tags = useMemo(
     () => Array.from(new Set(projects.flatMap((project) => project.tags))).sort(),
     [projects],
@@ -18,14 +18,17 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
     ? projects.filter((project) => project.tags.includes(activeTag))
     : projects;
 
+  const activeProject = projects.find(
+    (project) => project.slug === activeProjectSlug,
+  );
+
   const changeProjectFromHash = useCallback(() => {
-    const projectIndex = Number.parseInt(window.location.hash.slice(1), 10);
-    setActiveProject(
-      Number.isInteger(projectIndex) && projectIndex >= 0 && projectIndex < projects.length
-        ? projectIndex
-        : -1,
-    );
-  }, [projects.length]);
+    try {
+      setActiveProjectSlug(decodeURIComponent(window.location.hash.slice(1)));
+    } catch {
+      setActiveProjectSlug("");
+    }
+  }, []);
 
   useEffect(() => {
     window.addEventListener("hashchange", changeProjectFromHash);
@@ -38,19 +41,20 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
     };
   }, [changeProjectFromHash]);
 
-  const getAdjacentProjectIndex = (direction: -1 | 1) => {
+  const getAdjacentProjectSlug = (direction: -1 | 1) => {
     const currentPosition = filteredProjects.findIndex(
-      (project) => project.slug === projects[activeProject]?.slug,
+      (project) => project.slug === activeProject?.slug,
     );
     const nextPosition = currentPosition + direction;
+    const adjacentProject =
+      currentPosition !== -1 ? filteredProjects[nextPosition] : undefined;
 
-    const adjacentProject = currentPosition !== -1 ? filteredProjects[nextPosition] : undefined;
-    return adjacentProject ? projects.indexOf(adjacentProject) : null;
+    return adjacentProject?.slug ?? null;
   };
 
   return (
     <main>
-      {activeProject === -1 ? (
+      {!activeProject ? (
         <>
           <Navbar to_path="/" name="Home" />
           <div className={styles.projectMainDiv}>
@@ -64,17 +68,17 @@ export default function ProjectsPage({ projects }: { projects: Project[] }) {
             <hr />
             <div className={styles.projectsGrid}>
               {filteredProjects.map((project, index) => (
-                <ProjectHolder key={project.slug} project={project} projectKey={projects.indexOf(project)} priority={index < 2} />
+                <ProjectHolder key={project.slug} project={project} projectSlug={project.slug} priority={index < 2} />
               ))}
             </div>
           </div>
         </>
       ) : (
         <Pager
-          key={projects[activeProject].slug}
-          project={projects[activeProject]}
-          previousProjectIndex={getAdjacentProjectIndex(-1)}
-          nextProjectIndex={getAdjacentProjectIndex(1)}
+          key={activeProject.slug}
+          project={activeProject}
+          previousProjectSlug={getAdjacentProjectSlug(-1)}
+          nextProjectSlug={getAdjacentProjectSlug(1)}
         />
       )}
     </main>
