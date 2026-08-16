@@ -1,260 +1,237 @@
-.pagerMainDiv:focus {
-    outline: none;
-
+.pagerMainDiv {
+  min-height: 100dvh;
 }
-
-
-
 
 .navBar {
-    display: flex;
-    z-index: 10;
-    top:0;
-    font-size: large;
-    padding: 1em 2em;
-    justify-content: space-between;
-    align-items: center;
+  width: min(var(--max-content-width), calc(100% - (2 * var(--page-gutter))));
+  min-height: 72px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid var(--secondary-color);
 }
 
-.navBar a {
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: var(--fsize-mid);
-    text-decoration: none;
-    transition: color var(--base-transition-time) ease;
+.navBar > a {
+  color: var(--text-color-dark);
+  font-size: 0.76rem;
+  text-decoration: none;
 }
 
-.navBar a:hover {
-    color: var(--hover-color);
-
+.navBar > a:hover {
+  color: var(--hover-color);
 }
 
 .arrowContainer {
-    display: flex;
-    align-items: center;
-}
-
-
-.leftButton em,
-.rightButton em {
-    display: block;
-    height: 36px;
-    width: 50px;
-    position: absolute;
-    top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .leftButton,
-.rightButton{
-    display: block;
-    position: relative;
-    width: 36px;
-    height: 50px;
-    margin-left: 30px;
-    cursor: default;
+.rightButton {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  display: block;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  cursor: default;
+  transition: border-color var(--base-transition-time) ease, background var(--base-transition-time) ease;
 }
 
 .navBar a.leftButton,
 .navBar a.rightButton {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+.navBar a.leftButton:hover,
+.navBar a.rightButton:hover {
+  border-color: var(--hover-color);
+  background: var(--highlight-color);
+}
+
+.leftButton em,
+.rightButton em {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.leftButton em::before,
+.leftButton em::after,
+.rightButton em::before,
+.rightButton em::after {
+  position: absolute;
+  top: 19px;
+  width: 11px;
+  height: 1px;
+  content: "";
+  background: var(--text-color-dark);
+  transition: background var(--base-transition-time) ease;
+}
+
+.leftButton em::before,
+.leftButton em::after {
+  left: 13px;
+  transform-origin: left center;
+}
+
+.rightButton em::before,
+.rightButton em::after {
+  right: 13px;
+  transform-origin: right center;
+}
+
+.leftButton em::before,
+.rightButton em::after {
+  transform: rotate(35deg);
 }
 
 .leftButton em::after,
-.leftButton em::before,
-.rightButton em::after,
 .rightButton em::before {
-    transition: all var(--base-transition-time) ease;
-    margin-left: 10px;
-    margin-right: 10px;
-    content: " ";
-    position: absolute;
-    height: 100%;
-    width: 8px;
-    border-radius: 10px;
-    background-color: var(--text-color-dark);
-
+  transform: rotate(-35deg);
 }
 
-.leftButton em::before,
-.rightButton em::before {
-    top: 50%;
-
+.navBar a.leftButton:hover em::before,
+.navBar a.leftButton:hover em::after,
+.navBar a.rightButton:hover em::before,
+.navBar a.rightButton:hover em::after {
+  background: var(--hover-color);
 }
-.leftButton em::after, 
-.rightButton em::after {
-    bottom: -91%;  
-}
-.rightButton em::before {
-    transform: rotate(-60deg);
-}
-.rightButton em::after {
-    transform: rotate(-120deg);
-}
-.leftButton em::before {
-    transform: rotate(60deg);
-}
-.leftButton em::after {
-    transform: rotate(120deg);
-}
-
 
 .pagerBody {
-    position: relative;
-    display: flex;
-
+  width: min(820px, calc(100% - (2 * var(--page-gutter))));
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) 0 7rem;
 }
-.pagerContent{
-    margin: 0 auto;
-    overflow-x: auto;
+
+.pagerContent {
+  width: 100%;
+}
+
+.pagerContent article {
+  animation: detailIn var(--normal-transition-time) ease both;
+}
+
+.pagerContent header {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--secondary-color);
+}
+
+.pagerContent header h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 4.5rem);
+  line-height: 1.02;
+}
+
+.pagerContent header p {
+  max-width: 62ch;
+  margin: 1rem 0 0;
+  color: var(--sub-text-color);
+  line-height: 1.65;
 }
 
 .pagerContent section {
-    margin-bottom: 50px;
-
+  margin-top: 4rem;
 }
 
-.contentDiv {
-    margin-left: 10px;
+.pagerContent section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
 }
 
+.contentDiv,
 .contentDivLi {
-    margin-left: 10px;
+  color: var(--text-color-dark);
+  font-size: 0.86rem;
+  line-height: 1.8;
 }
-.contentDivLi {
-    list-style: none;
-    margin-top: 10px;
-    margin-left: 0;
-    font-size: var(--fsize-smol);
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    overflow-wrap: break-word; 
+
+.contentDiv a,
+.contentDivLi a {
+  color: var(--link-color);
+  text-decoration: none;
 }
-.contentDiv a {
-    text-decoration: none;
-    color: var(--link-color);
+
+.contentDiv a:hover,
+.contentDivLi a:hover {
+  color: var(--hover-color);
+  text-decoration: underline;
 }
-.contentDiv a:visited {
-    color: var(--visited-color);
-}
+
 .contentDivLi ul {
-    margin-left: 10px;
-    padding: 0;
+  margin: 0;
+  padding-left: 1.25rem;
 }
-
 
 .projectLinksDiv {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.projectLinksDiv a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-    background-color: var(--text-color-dark);
-    border: 2px solid black;
-    border-radius: 10px;
-    transition: background-color var(--base-transition-time) ease;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
 }
 
-.projectLinksDiv img {
-    width: 20px;
-    height: 20px;
+.projectLinksDiv a {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  background: var(--overlay-color);
+  transition: border-color var(--base-transition-time) ease, background var(--base-transition-time) ease;
 }
 
 .projectLinksDiv a:hover {
-    background-color: var(--text-color);
+  border-color: var(--hover-color);
+  background: var(--highlight-color);
 }
 
+.projectLinksDiv img {
+  width: 19px;
+  height: 19px;
+}
 
 .skillsContainer {
-    margin-top: 20px;
-    display: flex; 
-    flex-wrap: wrap; 
-
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
-
 
 .skillsContainer span {
-    display: inline;
-    margin-left: 10px;
-    margin-top: 10px;
-    border-radius: 10px;
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-size: var(--fsize-smol);
-    background-color: var(--skill-box-bg);
-    color : var(--skill-box-color);
-    border: 2px solid var(--skill-box-color);
+  padding: 0.4rem 0.55rem;
+  border: 1px solid var(--skill-box-color);
+  border-radius: 4px;
+  background: var(--skill-box-bg);
+  color: var(--skill-box-color);
+  font-size: 0.7rem;
 }
 
-
-
-@media (hover: hover) and (pointer: fine){
-    .leftButton:hover  em::before,
-    .rightButton:hover  em::before,
-    .leftButton:hover  em::after,
-    .rightButton:hover  em::after {
-        background-color: var(--hover-color);
-
-    }
-
-    .leftButton:hover  em::before,
-    .rightButton:hover  em::before  {
-        top: 30%
-    }
-    .leftButton:hover  em::after,
-    .rightButton:hover  em::after {
-        bottom: -104%;
-    }
-    .leftButton:hover  em::before {
-        transform: rotate(25deg);
-    }
-    .leftButton:hover  em::after {
-        transform: rotate(155deg);
-    }
-    .rightButton:hover  em::before {
-        transform: rotate(-25deg);
-    }
-    .rightButton:hover  em::after {
-        transform: rotate(-155deg);
-    }
-
-}
-
-
-@media screen and (max-width: 1279px) {
-    .pagerContent {
-        width: 80vw;
-    }
-    
-}
-
-/* Media query for web/desktop devices */
-@media screen and (min-width: 1280px) {
-    .pagerContent {
-        width: 55vw;
-    }
-
-}
-
-
-.pagerContent article {
-    animation: slideInTitle var(--normal-transition-time) ease;
-}
-
-@keyframes slideInTitle {
-    from {
-        opacity: 0;
-      transform: translatey(20px);
-    }
-    to {
-        opacity: 1;
-      transform: translate3d(0);
-    }
+@keyframes detailIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 680px) {
+  .navBar,
+  .pagerBody {
+    width: calc(100% - 2rem);
+  }
+
+  .navBar {
+    min-height: 64px;
+  }
+
+  .pagerContent header h1 {
+    font-size: 2.35rem;
+  }
+}

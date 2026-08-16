@@ -1,7 +1,7 @@
 ---
-title: " Backend Engineer"
+title: "Network and Automations Engineer"
 date: "2025-01-27"
-range: "Jan 2025 - Present"
+range: "Jan 2025 - Nov 2025"
 company: "Huawei Technologies Company Nigeria Limited"
 link: "https://consumer.huawei.com/ng/"
 skills:

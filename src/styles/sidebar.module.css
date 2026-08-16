@@ -1,112 +1,35 @@
-/* .sidebarDiv { */
-    /* opacity: 0; */
-    /* animation: fadeInUp var(--smooth-transition-time) ease; */
-/* } */
-
-/* @keyframes fadeInUp { */
-    /* 0% { */
-        /* opacity: 0; */
-        /* transform: translateY(calc(100% + 40px)); */
-    /* } */
-    /* 100% { */
-        /* opacity: 1; */
-        /* transform: translateY(0); */
-
-    /* } */
-    
-/* } */
-
-.logoDiv {
-    width: var(--fsize-large);
-    height: var(--fsize-large);
-    transition: all var(--base-transition-time) ease;
+.sidebarDiv {
+  width: min(var(--max-content-width), calc(100% - (2 * var(--page-gutter))));
+  margin: 0 auto;
+  padding: 2rem 0;
+  border-top: 1px solid var(--secondary-color);
 }
-.logoDiv svg {
-    transition: fill var(--base-transition-time) ease;
-    fill: var(--sub-text-color);
-}
-
-.logoDiv:hover svg{
-    fill: var(--text-color-dark);
-}
-.logoDiv:hover {
-    filter: drop-shadow(0px 0px 10px var(--hover-color)); 
-    transform: translateY(-3px);
-}
-
 
 .sidebarDiv ul {
-
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    position: absolute;
-    bottom: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
 }
 
-.sidebarDiv li {
-    list-style-type: none;
+.logoDiv {
+  width: 24px;
+  height: 24px;
+  transition: transform var(--base-transition-time) ease, filter var(--base-transition-time) ease;
 }
 
-
-
-
-/* Media query for mobile devices */
-@media screen and (max-width: 1279px) {
-    .sidebarDiv {
-        left: 0;
-        bottom: 0;
-        position: fixed;
-        margin-bottom: .7em;
-
-    }
-    .sidebarDiv ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px;
-        margin: 0px;
-    }
-    .sidebarDiv li {
-        float: left;
-        margin-left: 1.5em;
-    }
-  
+.logoDiv svg {
+  fill: var(--sub-text-color);
+  transition: fill var(--base-transition-time) ease;
 }
 
-/* Media query for web/desktop devices */
-@media screen and (min-width: 1280px) {
+.logoDiv:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 0 8px rgba(136, 192, 208, 0.45));
+}
 
-    .sidebarDiv {
-        position: fixed;
-        left: 0;
-        top: 0;
-        box-sizing: border-box; 
-    }
-
-    .sidebarDiv ul::after{
-        opacity: .69;
-        content: "";
-        background-color: var(--sub-text-color);
-        display: block;
-        width: 1px;
-        margin: 30px auto;
-        margin-bottom: 0;
-        height: var(--normal-margin-top);
-    }
-
-    .sidebarDiv ul {
-        padding-left: 3em;
-
-    }
-
-    .sidebarDiv {
-        height: 100%;
-    }
-
-    .sidebarDiv li {
-        margin-left: 0;
-        margin-top: 2em;
-    }
-
+.logoDiv:hover svg {
+  fill: var(--hover-color);
 }

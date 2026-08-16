@@ -1,121 +1,90 @@
 .projectHolder {
-    position: relative;
-    margin-top: 1em;
-    padding: 0;
-    border: 1px solid var(--secondary-color);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    cursor: pointer;
-    text-decoration: none;
-    color: inherit;
-
-    animation: comeUP var(--normal-transition-time) ease;
-}
-
-@keyframes comeUP {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  background: rgba(59, 66, 82, 0.35);
+  color: var(--text-color);
+  text-decoration: none;
+  transition: transform var(--base-transition-time) ease, border-color var(--base-transition-time) ease, background var(--base-transition-time) ease;
 }
 
 .projectHolder:visited {
-    color: inherit;
+  color: var(--text-color);
+}
+
+.projectHolder:hover {
+  transform: translateY(-4px);
+  border-color: var(--hover-color);
+  background: rgba(67, 76, 94, 0.55);
 }
 
 .Image {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    border: none;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--secondary-color);
+  background: var(--overlay-color);
 }
 
-.projectHolder span {
-    padding-left: 5px;
+.Image img {
+  object-fit: cover;
 }
-.projectHolder .prtitle {
-    padding-top: 5px;
-    font-size: var(--fsize-mid);
-    font-weight: bold;
+
+.prtitle {
+  padding: 1rem 1rem 0;
+  color: var(--text-color);
+  font-size: 1.05rem;
+  font-weight: 700;
 }
-.projectHolder .prduration {
-    padding-bottom: 5px;
-    font-size: var(--fsize-smol);
-    color: var(--sub-text-color);
+
+.prduration {
+  padding: 0.35rem 1rem 0;
+  color: var(--sub-text-color);
+  font-size: 0.7rem;
 }
-.projectHolder .archivedBadge {
-    display: inline-block;
-    width: max-content;
-    margin-left: 5px;
-    font-size: var(--fsize-xsmol);
-    color: var(--sub-text-color);
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    padding: 1px 6px;
+
+.archivedBadge {
+  width: max-content;
+  margin: 0.55rem 1rem 0;
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  color: var(--sub-text-color);
+  font-size: 0.62rem;
 }
 
 .overlayDiv {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--overlay-color);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-
-    opacity: 0;
-    transition: opacity var(--base-transition-time) ease;
+  padding: 0.85rem 1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 
-.overlayDiv:hover {
-    opacity: 1;
+.ovdTitle {
+  color: var(--text-color-dark);
+  font-size: 0.78rem;
+  line-height: 1.55;
 }
 
-.overlayDiv .ovdTitle {
-    padding-top: 10px;
-    font-size: var(--fsize-smol);
-    text-align: center;
+.ovdSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
-.overlayDiv .ovdSkills {
-    position: absolute;
-    align-self: center;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.ovdSkills span {
+  padding: 0.25rem 0.4rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  color: var(--sub-text-color);
+  font-size: 0.62rem;
 }
 
-.overlayDiv .ovdSkills span {
-    margin-left: 10px;
-    background-color: transparent;
-    font-size: var(--fsize-xsmol);
-    padding: 3px;
-    border-radius: 5px;
-    color: var(--text-color-dark);
-    border: 1px solid var(--text-color-dark);
-}
-
-.overlayDiv .ovdSkills .lastSpan {
-    border: none;
-    font-size: var(--fsize-smol);
-}
-
-.Image {
-    width: var(--image-width-small);
-    height: var(--image-height-small);
-    border-bottom: 1px solid var(--secondary-color);
+.ovdSkills .lastSpan {
+  border-color: transparent;
+  color: var(--skill-box-color);
 }

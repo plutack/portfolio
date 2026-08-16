@@ -1,64 +1,59 @@
-/* Filter Tags */
+.projectMainDiv {
+  width: min(var(--max-content-width), calc(100% - (2 * var(--page-gutter))));
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 6rem) 0 7rem;
+}
+
+.projectMainDiv h1 {
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4.6rem);
+  line-height: 1;
+}
+
 .filterTags {
-    margin: 1em 1em;
-}  
+  margin: 2rem 0 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
 .filterTags button {
-    border: 0;
-    font: inherit;
-    color: var(--text-color-dark);
-    opacity: 0.7;
-    background-color:var(--secondary-color);
-
-    padding: 6px 6px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-
-    font-size: var(--fsize-smol);
-    cursor: pointer;
-    transition: all var(--base-transition-time) ease;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--sub-text-color);
+  font: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: border-color var(--base-transition-time) ease, color var(--base-transition-time) ease, background var(--base-transition-time) ease;
 }
+
 .filterTags button:hover {
-    opacity: 1;
+  border-color: var(--hover-color);
+  color: var(--text-color);
 }
+
 .filterTags .activeTag {
-    opacity: .9;
-
-    background-color: var(--text-color-dark);
-    color: #000; /* var(--primary-color); */
-    /* font-weight: bold; */
-}
-.filterTags .activeTag:hover {
-    background-color: var(--text-color-dark);
-    color: var(--primary-color);
+  border-color: var(--hover-color);
+  background: var(--hover-color);
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
-
-/* Main Frame */
-.projectMainDiv{
- margin: 1em;
- transition: all var(--normal-transition-time) ease;
-}
-
-/* Projects Grid */
 .projectsGrid {
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-    justify-items: center;
-    gap: 10px;
-
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
+@media (max-width: 760px) {
+  .projectMainDiv {
+    width: calc(100% - 2rem);
+  }
 
-
-
-
-@media screen and (max-width: 1079px) {
-    
-    .projectsGrid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-    
+  .projectsGrid {
+    grid-template-columns: 1fr;
+  }
 }
-

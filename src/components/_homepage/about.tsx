@@ -3,7 +3,7 @@ import styles from "@/styles/homepage.module.css";
 
 export default function About() {
     return <section id='about' className={styles.aboutDiv}>
-    <p>I&apos;m a software engineer proficient in Go, JavaScript, TypeScript, and Python. I build reliable web applications, APIs, microservices, and developer tools.</p>
+    <p>I work mainly with Go, JavaScript, TypeScript, and Python. I enjoy turning complex requirements into maintainable systems and collaborating across product and engineering teams.</p>
     {/* <h2>Education</h2>
     <div>
         <ul>

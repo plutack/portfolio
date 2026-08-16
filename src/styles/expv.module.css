@@ -1,147 +1,111 @@
-
-/* Exp Array styl */
-.expListContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: var(--normal-margin-top);
-    /* Animation */
-
-    animation: fadeIn var(--smooth-transition-time) cubic-bezier(0.23, 1, 0.32, 1) forwards;
+.expListContainer,
+.expViewContainer {
+  max-width: 840px;
+  scroll-margin-top: 6rem;
 }
 
-
-@keyframes fadeIn {
-    from {
-        transform: translateY(-2em);
-    }
-    to {
-        transform: translateY(0);
-    }
+.expListContainer {
+  border-top: 1px solid var(--secondary-color);
 }
 
-/* Common exp holder */
-
-.expContainer{
-    padding-top: 2em;
-    /* font-size: var(--fsize-smol); */
-
+.expContainer {
+  min-height: 88px;
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  border-bottom: 1px solid var(--secondary-color);
 }
+
 .expContainerLeft {
-    float: left;
+  min-width: 0;
 }
+
 .expContainerLeft span {
-   display: block;
+  display: block;
 }
+
 .expTitle {
-    font-size: var(--fsize-smol);
-    text-align: left;
+  color: var(--text-color-dark);
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
+
 .expTitle a {
-    color: var(--tag-color);
-    text-decoration: none;
+  color: var(--skill-box-color);
+  text-decoration: none;
 }
+
 .expDuration {
-  color: var(--sub-text-color)
+  margin-top: 0.35rem;
+  color: var(--sub-text-color);
+  font-size: 0.72rem;
 }
+
 .expMaxMin {
-    border: 0;
-    padding: 0;
-    width: 2ch;
-    font-size: var(--fsize-mid);
-    text-align: center;
-    border-radius: 100%;
-    color: var(--text-color-dark);
-    background-color: var(--highlight-color);
-    cursor: pointer;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-color);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color var(--base-transition-time) ease, color var(--base-transition-time) ease, transform var(--base-transition-time) ease;
 }
 
+.expMaxMin:hover {
+  border-color: var(--hover-color);
+  color: var(--hover-color);
+}
 
-/* Maximized View */
+.expMaxMin:active {
+  transform: translateY(1px);
+}
 
 .contentDiv {
-    font-size: var(--fsize-smol);
-    position: relative;
-    display: inline-block;
-    padding-top: .5em;
-    padding-left: 1em;
+  padding: 1.5rem 0 0;
+  color: var(--text-color-dark);
+  font-size: 0.86rem;
+  line-height: 1.75;
 }
+
 .contentDiv a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .contentDiv li {
-    font-size: var(--fsize-smol);
-    padding: var(--li-padding);
-}
-
-.expViewContainer {
-    margin-top: var(--min-margin-top);
-    transition: all var(--smooth-transition-time) cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.expViewContainer .contentDiv,
-.expViewContainer .skillUsed {
-    animation: fadeIn2 var(--smooth-transition-time) cubic-bezier(0.23, 1, 0.32, 1);
-
-}
-
-@keyframes fadeIn2 {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  margin-bottom: 0.55rem;
 }
 
 .skillUsed {
-    align-content: center;
-    padding-left: 1em;
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 
 .skillUsed span {
-    font-size: var(--fsize-xsmol);
-    display: inline-block;
-    
-    border-radius:5px;
-    margin-left: 10px;
-    margin-top: 10px;
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-
-    color: var(--skill-box-color);
-    background-color: var(--skill-box-bg);
-    border: 1px solid var(--skill-box-color);
+  padding: 0.35rem 0.5rem;
+  border: 1px solid var(--skill-box-color);
+  border-radius: 4px;
+  background: var(--skill-box-bg);
+  color: var(--skill-box-color);
+  font-size: 0.7rem;
 }
 
-/* Media query for mobile devices */
-@media screen and (max-width: 1279px) {
+@media (max-width: 680px) {
+  .expContainer {
+    gap: 1rem;
+  }
 
-    .expViewContainer ul {
-        padding: 1em;
-    }
-    .expContainer {
-        width: 340px;
-    }
+  .expTitle {
+    font-size: 0.8rem;
+  }
 
-    .expContainerLeft {
-        font-size: var(--fsize-smol);
-    }
+  .contentDiv ul {
+    padding-left: 1.25rem;
+  }
 }
-
-/* Media query for desktop devices */
-@media screen and (min-width: 1280px) {
-
-    .expViewContainer ul {
-        padding-left: 2em;
-    }
-    
-    .expContainer {
-        width: 600px;
-    }
-
-}
-
