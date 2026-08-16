@@ -13,7 +13,6 @@ import Socials from "@/components/_homepage/socials";
 import { SocialLinks } from "@/types";
 import scJson from "@/../_content/socials.json";
 import Intro from "@/components/_homepage/intro";
-import { DelayedSuspense } from "@/components/delayedsus";
 
 export default function Home() {
   const exparr = getAllExperiences();
@@ -21,20 +20,18 @@ export default function Home() {
   const sociallinks: SocialLinks[] = scJson;
   return (
     <main>
-      <DelayedSuspense delay={0}>
-        <Navbar to_path="/projects" name="Projects"></Navbar>
-        <HomePage
-          sections={{
-            home: <Intro />,
-            projects: <ProjectsSection projects={projects} />,
-            about: <About />,
-            skills: <Skills />,
-            experience: <ExperienceArray exparr={exparr} />,
-            contact: <Contact />,
-          }}
-        ></HomePage>
-        <Socials socials={sociallinks}></Socials>
-      </DelayedSuspense>
+      <Navbar to_path="/projects" name="Projects" />
+      <HomePage
+        sections={{
+          home: <Intro />,
+          projects: <ProjectsSection projects={projects} />,
+          about: <About />,
+          skills: <Skills />,
+          experience: <ExperienceArray exparr={exparr} />,
+          contact: <Contact />,
+        }}
+      />
+      <Socials socials={sociallinks} />
     </main>
   );
 }

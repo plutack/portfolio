@@ -1,54 +1,42 @@
 import Image from "next/image";
+import { Project } from "@/types";
 import styles from "@/styles/prholder.module.css";
-import { useState } from "react";
-import React from "react";
 
-const ProjectHolder = (props: {
-  name: string;
-  duration: string;
-  image_src: string;
-  skills: string[];
-  shortDescription: string;
+export default function ProjectHolder({
+  project,
+  projectKey,
+  priority = false,
+}: {
+  project: Project;
   projectKey: number;
-  archived?: boolean;
-}) => {
-  // To show only the first n skills used
-  let n = 5;
-  const skillsSpans = new Array<JSX.Element>();
-
-  for (let i = 0; i < n && i < props.skills.length; i++) {
-    skillsSpans.push(<span key={i}>{props.skills[i]}</span>);
-  }
-
-  if (n < props.skills.length) {
-    skillsSpans.push(
-      <span key={"final"} className={styles.lastSpan}>
-        {"& more..."}
-      </span>,
-    );
-  }
+  priority?: boolean;
+}) {
+  const visibleSkills = project.skills.slice(0, 5);
 
   return (
-    <a className={styles.projectHolder} href={`#${props.projectKey}`}>
+    <a className={styles.projectHolder} href={`/projects#${projectKey}`}>
       <div className={styles.Image}>
         <Image
-          src={props.image_src}
-          alt="da first image"
+          src={project.images[0]}
+          alt={project.name}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority={true}
-          unoptimized={true}
+          priority={priority}
         />
       </div>
-      <span className={styles.prtitle}>{props.name}</span>
-      {props.archived && <span className={styles.archivedBadge}>Archived</span>}
-      <span className={styles.prduration}>{props.duration}</span>
+      <span className={styles.prtitle}>{project.name}</span>
+      {project.archived && <span className={styles.archivedBadge}>Archived</span>}
+      <span className={styles.prduration}>{project.range}</span>
 
       <div className={styles.overlayDiv}>
-        <span className={styles.ovdTitle}>{props.shortDescription}</span>
-        <div className={styles.ovdSkills}>{skillsSpans}</div>
+        <span className={styles.ovdTitle}>{project.shortDescription}</span>
+        <div className={styles.ovdSkills}>
+          {visibleSkills.map((skill) => <span key={skill}>{skill}</span>)}
+          {project.skills.length > visibleSkills.length && (
+            <span className={styles.lastSpan}>&amp; more...</span>
+          )}
+        </div>
       </div>
     </a>
   );
-};
-export default React.memo(ProjectHolder);
+}

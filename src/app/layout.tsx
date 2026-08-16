@@ -1,37 +1,39 @@
 import type { Metadata } from "next";
-import { Noto_Sans_Mono as PageFont } from "next/font/google";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from "next/script";
 
 import "@/styles/globals.css";
 
-const pagefont = PageFont({
-  // weight: ["400"],
-  subsets: ['cyrillic']  
-});
+const googleAnalyticsId = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
-  title: "Talut Salako",
-  description: "Personal Portfolio Website",
+  title: {
+    default: "Talut Salako",
+    template: "%s | Talut Salako",
+  },
+  description: "Software engineer building reliable web applications, APIs, microservices, and developer tools.",
+  icons: { icon: "/svgs/favicon.svg" },
 };
 
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/svgs/favicon.svg" type="image/svg" />
-        {/* personaly google analytics */}
-        <GoogleAnalytics gaId="G-GCC3HZK8D4" />
-      </head>
-
-      <body className={pagefont.className}  suppressHydrationWarning={true}>
+      <body>
         {children}
+        {googleAnalyticsId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${googleAnalyticsId}');`}
+            </Script>
+          </>
+        )}
       </body>
-      
     </html>
   );
 }

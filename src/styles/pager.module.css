@@ -16,13 +16,15 @@
     align-items: center;
 }
 
-.navBar span {
+.navBar a {
     cursor: pointer;
+    color: var(--text-color);
     font-size: var(--fsize-mid);
+    text-decoration: none;
     transition: color var(--base-transition-time) ease;
 }
 
-.navBar span:hover {
+.navBar a:hover {
     color: var(--hover-color);
 
 }
@@ -44,18 +46,23 @@
 
 .leftButton,
 .rightButton{
+    display: block;
+    position: relative;
     width: 36px;
     height: 50px;
-    /* margin-right: 10px; */
     margin-left: 30px;
+    cursor: default;
+}
+
+.navBar a.leftButton,
+.navBar a.rightButton {
     cursor: pointer;
 }
 
-
-.leftButton em::after, 
-.rightButton em::after,
+.leftButton em::after,
 .leftButton em::before,
-.rightButton em::before{
+.rightButton em::after,
+.rightButton em::before {
     transition: all var(--base-transition-time) ease;
     margin-left: 10px;
     margin-right: 10px;
@@ -140,18 +147,25 @@
     justify-content: flex-end;
     align-items: center;
 }
-.projectLinksDiv img {
-    background-color: var(--text-color-dark);
-    border-radius: 10px;
-    padding: 10px;
-    border: 2px solid black;
+.projectLinksDiv a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
     margin-left: 10px;
-    width: var(--fsize-mid);
-    height: var(--fsize-mid);
+    background-color: var(--text-color-dark);
+    border: 2px solid black;
+    border-radius: 10px;
     transition: background-color var(--base-transition-time) ease;
 }
 
-.projectLinksDiv img:hover {
+.projectLinksDiv img {
+    width: 20px;
+    height: 20px;
+}
+
+.projectLinksDiv a:hover {
     background-color: var(--text-color);
 }
 

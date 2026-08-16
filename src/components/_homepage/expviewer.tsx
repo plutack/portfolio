@@ -19,10 +19,10 @@ export default function ExperienceArray(props: {
                 exparr.map((exp, index) => {
                     return <div key = {`exp${index}`} className={styles.expContainer}>
                                 <div className={styles.expContainerLeft}>
-                                    <span className={styles.expTitle}>{exp.title}<a href={exp.link} target='_blank'>{` @ ${exp.company}`}</a> </span>
+                                    <span className={styles.expTitle}>{exp.title}{exp.link !== "nil" && <a href={exp.link} target='_blank' rel="noopener noreferrer">{` @ ${exp.company}`}</a>} </span>
                                     <span className={styles.expDuration}>{exp.range}</span>
                                 </div>
-                                <span className={styles.expMaxMin} onClick={() => setActiveItem(index)}>+</span>
+                                <button type="button" className={styles.expMaxMin} aria-label={`View ${exp.title} experience`} onClick={() => setActiveItem(index)}>+</button>
                             </div>
                 })                
                 }
@@ -31,10 +31,10 @@ export default function ExperienceArray(props: {
             <div className={styles.expViewContainer}>
                 <div className={styles.expContainer}>
                     <div className={styles.expContainerLeft}>
-                        <span className={styles.expTitle} >{exparr[activeItem].title}<a href={exparr[activeItem].link} target='_blank'>{` @ ${exparr[activeItem].company}`}</a> </span>
+                        <span className={styles.expTitle} >{exparr[activeItem].title}{exparr[activeItem].link !== "nil" && <a href={exparr[activeItem].link} target='_blank' rel="noopener noreferrer">{` @ ${exparr[activeItem].company}`}</a>} </span>
                         <span className={styles.expDuration}>{exparr[activeItem].range}</span>
                     </div>    
-                    <span className={styles.expMaxMin} onClick={() => setActiveItem(-1)}>{"×"}</span>
+                    <button type="button" className={styles.expMaxMin} aria-label="Close experience details" onClick={() => setActiveItem(-1)}>×</button>
                 </div>
 
                 <div className={styles.contentDiv}>

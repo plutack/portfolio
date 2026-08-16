@@ -8,7 +8,13 @@ export type Experience = {
   content: string;
 };
 
+export type ProjectLink = {
+  name: string;
+  url: string;
+};
+
 export type Project = {
+  slug: string;
   name: string;
   date: string;
   range: string;
@@ -16,7 +22,7 @@ export type Project = {
   tags: string[];
   images: string[];
   shortDescription: string;
-  links: { [key: string]: string };
+  links: ProjectLink[];
   content: string;
   archived?: boolean;
 };

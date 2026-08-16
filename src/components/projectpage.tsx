@@ -1,99 +1,52 @@
 "use client";
+
 import { Project } from "@/types";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import styles from "@/styles/projects.module.css";
 import ProjectHolder from "@/components/_projectpage/projectholder";
 import Navbar from "@/components/navbar";
 import Pager from "@/components/_projectpage/pager";
 
-export default function ProjectsPage(props: {
-  projects: Project[];
-  uniqueTags: Set<string>;
-}) {
-  const [filteredEntries, setFilteredEntries] = useState<number[]>(
-    Array.from({ length: props.projects.length }, (_, index) => index),
+export default function ProjectsPage({ projects }: { projects: Project[] }) {
+  const [activeTag, setActiveTag] = useState("");
+  const [activeProject, setActiveProject] = useState(-1);
+  const tags = useMemo(
+    () => Array.from(new Set(projects.flatMap((project) => project.tags))).sort(),
+    [projects],
   );
-  const [activeTag, setActiveTag] = useState<string>("");
+  const filteredProjects = activeTag
+    ? projects.filter((project) => project.tags.includes(activeTag))
+    : projects;
 
-  // Selected Project
-  const [activeProject, setActiveProject] = useState<number>(-1);
-
-  const changeKeybyHash = useCallback(
-    (keyStr: string) => {
-      keyStr = keyStr.substring(1);
-
-      const newIDX = parseInt(keyStr);
-      // If newIDX is a number and it is with the the range
-      if (!isNaN(newIDX) && newIDX >= 0 && newIDX < props.projects.length) {
-        setActiveProject(newIDX);
-        window.scrollTo({ top: 0 });
-      } else setActiveProject(-1);
-    },
-    [setActiveProject, props.projects.length],
-  );
+  const changeProjectFromHash = useCallback(() => {
+    const projectIndex = Number.parseInt(window.location.hash.slice(1), 10);
+    setActiveProject(
+      Number.isInteger(projectIndex) && projectIndex >= 0 && projectIndex < projects.length
+        ? projectIndex
+        : -1,
+    );
+  }, [projects.length]);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      changeKeybyHash(window.location.hash);
-    };
-    window.addEventListener("hashchange", handleHashChange);
-    handleHashChange();
+    window.addEventListener("hashchange", changeProjectFromHash);
+    window.addEventListener("popstate", changeProjectFromHash);
+    changeProjectFromHash();
+
     return () => {
-      window.removeEventListener("hashchange", handleHashChange);
+      window.removeEventListener("hashchange", changeProjectFromHash);
+      window.removeEventListener("popstate", changeProjectFromHash);
     };
-  }, [changeKeybyHash]);
+  }, [changeProjectFromHash]);
 
-  /** Logic to filter the projects by given tag */
-  const filterbyTag = (tag: string) => {
-    setActiveTag(tag);
-    if (tag === "") {
-      setFilteredEntries(
-        Array.from({ length: props.projects.length }, (_, index) => index),
-      );
-      return;
-    }
-
-    let filtered = new Array<number>();
-
-    props.projects.forEach((project, index) => {
-      if (project.tags.indexOf(tag) !== -1) filtered.push(index);
-    });
-    setFilteredEntries(filtered);
-  };
-
-  /** Check if there is project exist in given index */
-  const pagerHelper = (direction: -1 | 1) => {
-    let newIdx = filteredEntries.indexOf(activeProject);
-    if (newIdx === -1) return null;
-    newIdx += direction; // To reverse the direction
-
-    +direction;
-    if (newIdx < 0 || newIdx >= filteredEntries.length) return null;
-
-    return filteredEntries[newIdx];
-  };
-
-  /** Tag JSX[] */
-  const tagsJsx = [
-    <span
-      key={"all"}
-      className={activeTag == "" ? styles.activeTag : ""}
-      onClick={() => filterbyTag("")}
-    >
-      SHOW ALL
-    </span>,
-  ];
-  props.uniqueTags.forEach((tag) => {
-    tagsJsx.push(
-      <span
-        key={tag}
-        className={activeTag == tag ? styles.activeTag : ""}
-        onClick={() => filterbyTag(tag)}
-      >
-        {tag}
-      </span>,
+  const getAdjacentProjectIndex = (direction: -1 | 1) => {
+    const currentPosition = filteredProjects.findIndex(
+      (project) => project.slug === projects[activeProject]?.slug,
     );
-  });
+    const nextPosition = currentPosition + direction;
+
+    const adjacentProject = currentPosition !== -1 ? filteredProjects[nextPosition] : undefined;
+    return adjacentProject ? projects.indexOf(adjacentProject) : null;
+  };
 
   return (
     <main>
@@ -101,34 +54,27 @@ export default function ProjectsPage(props: {
         <>
           <Navbar to_path="/" name="Home" />
           <div className={styles.projectMainDiv}>
-            <h2>My Projects,</h2>
-            <div className={styles.filterTags}>{tagsJsx}</div>
+            <h1>My Projects</h1>
+            <div className={styles.filterTags} aria-label="Filter projects by tag">
+              <button type="button" className={activeTag === "" ? styles.activeTag : ""} aria-pressed={activeTag === ""} onClick={() => setActiveTag("")}>SHOW ALL</button>
+              {tags.map((tag) => (
+                <button type="button" key={tag} className={activeTag === tag ? styles.activeTag : ""} aria-pressed={activeTag === tag} onClick={() => setActiveTag(tag)}>{tag}</button>
+              ))}
+            </div>
             <hr />
             <div className={styles.projectsGrid}>
-              {filteredEntries.map((_, arrindex) => {
-                const index =
-                  filteredEntries[filteredEntries.length - 1 - arrindex];
-
-                return (
-                  <ProjectHolder
-                    key={index}
-                    name={props.projects[index].name}
-                    duration={props.projects[index].range}
-                    image_src={props.projects[index].images[0]}
-                    shortDescription={props.projects[index].shortDescription}
-                    skills={props.projects[index].skills}
-                    projectKey={index}
-                    archived={props.projects[index].archived}
-                  />
-                );
-              })}
+              {filteredProjects.map((project, index) => (
+                <ProjectHolder key={project.slug} project={project} projectKey={projects.indexOf(project)} priority={index < 2} />
+              ))}
             </div>
           </div>
         </>
       ) : (
         <Pager
-          project={props.projects[activeProject]}
-          checkIndex={pagerHelper}
+          key={projects[activeProject].slug}
+          project={projects[activeProject]}
+          previousProjectIndex={getAdjacentProjectIndex(-1)}
+          nextProjectIndex={getAdjacentProjectIndex(1)}
         />
       )}
     </main>

@@ -11,9 +11,14 @@ export default function Socials(
     return (
         <div className={styles.sidebarDiv}>
             <ul>
-                {props.socials.map((obj, _) => (
+                {props.socials.map((obj) => (
                     <li key={obj.name}>
-                    <a href={obj.link} target="_blank">
+                    <a
+                      href={obj.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={obj.name}
+                    >
                     <SVGDiv classname={styles.logoDiv} svgName={obj.name}/>
                     </a>
                     </li>

@@ -14,9 +14,9 @@ tags:
   - "CRUD App"
 images:
   - "/images/scissor/landing.png"
-  - "/gifs/scissor/home.png"
-  - "/gifs/scissor/link.png"
-  - "/gifs/scissor/single.png"
+  - "/images/scissor/home.png"
+  - "/images/scissor/link.png"
+  - "/images/scissor/single.png"
 
 shortDescription: "A sleek URL shortening service offering custom links, QR code generation, and basic analytics to streamline link sharing and management"
 archived: true

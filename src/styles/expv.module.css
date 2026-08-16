@@ -45,7 +45,8 @@
   color: var(--sub-text-color)
 }
 .expMaxMin {
-    float: right;
+    border: 0;
+    padding: 0;
     width: 2ch;
     font-size: var(--fsize-mid);
     text-align: center;

@@ -66,9 +66,15 @@
     /* color: var(--text-color-dark); */
     font-size: var(--fsize-mid);
 }
-.introDiv h1 {
-    font-size: var(--fsize-xlarge);
+.introSummary {
+    display: block;
+    max-width: 680px;
+    margin-top: 1.25em;
+    color: var(--sub-text-color);
+    font-size: var(--fsize-about);
+    line-height: 1.6;
 }
+
 
 /* Contact Section */
 .contactDiv {

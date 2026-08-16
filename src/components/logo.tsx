@@ -1,6 +1,6 @@
 export default function Logo(){
 
-    return <svg version="1.0" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 429.000000 493.000000"
+    return <svg role="img" aria-label="Talut Salako logo" version="1.0" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 429.000000 493.000000"
     preserveAspectRatio="xMidYMid meet">
     <g transform="translate(0.000000,493.000000) scale(0.100000,-0.100000)" stroke="none">
     <path d="M1800 4195 c-8 -2 -55 -9 -105 -15 -204 -28 -480 -132 -655 -248

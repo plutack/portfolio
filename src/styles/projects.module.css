@@ -2,9 +2,9 @@
 .filterTags {
     margin: 1em 1em;
 }  
-.filterTags span {
-    display: inline-block;
-
+.filterTags button {
+    border: 0;
+    font: inherit;
     color: var(--text-color-dark);
     opacity: 0.7;
     background-color:var(--secondary-color);
@@ -18,7 +18,7 @@
     cursor: pointer;
     transition: all var(--base-transition-time) ease;
 }
-.filterTags span:hover {
+.filterTags button:hover {
     opacity: 1;
 }
 .filterTags .activeTag {

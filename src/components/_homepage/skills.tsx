@@ -22,7 +22,8 @@ export default function Skills() {
                 : <a 
                     key={skill} 
                     href={data.link} 
-                    target='_blank' 
+                    target='_blank'
+                    rel="noopener noreferrer"
                     style={{
                         borderColor: data.color, 
                         color: data.color,

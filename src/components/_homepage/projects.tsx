@@ -5,11 +5,7 @@ import styles from "@/styles/homepage.module.css";
 
 export default function ProjectsSection(props: { projects: Project[] }) {
     const { projects } = props;
-    // projects come sorted ascending by date; show newest first but keep the
-    // original index so cards deep-link into the /projects pager (#idx).
-    const ordered = projects
-        .map((p, idx) => ({ p, idx }))
-        .reverse();
+    const ordered = projects;
 
     return (
         <section id='projects' className={styles.projectsDiv}>
@@ -19,28 +15,28 @@ export default function ProjectsSection(props: { projects: Project[] }) {
                 <Link href="/projects">View all &rarr;</Link>
             </p>
             <div className={styles.projectsGrid}>
-                {ordered.map(({ p, idx }) => (
+                {ordered.map((project, index) => (
                     <Link
-                        key={idx}
-                        href={`/projects#${idx}`}
+                        key={project.slug}
+                        href={`/projects#${projects.indexOf(project)}`}
                         className={styles.projectCard}
                     >
                         <div className={styles.projectCardImage}>
                             <Image
-                                src={p.images[0]}
-                                alt={p.name}
+                                src={project.images[0]}
+                                alt={project.name}
                                 fill
                                 sizes="(max-width: 768px) 100vw, 33vw"
-                                unoptimized={true}
+                                priority={index === 0}
                             />
                         </div>
                         <div className={styles.projectCardBody}>
                             <div className={styles.projectCardHeader}>
-                                <span className={styles.projectCardTitle}>{p.name}</span>
-                                {p.archived && <span className={styles.archivedBadge}>Archived</span>}
+                                <span className={styles.projectCardTitle}>{project.name}</span>
+                                {project.archived && <span className={styles.archivedBadge}>Archived</span>}
                             </div>
-                            <span className={styles.projectCardDuration}>{p.range}</span>
-                            <p className={styles.projectCardDesc}>{p.shortDescription}</p>
+                            <span className={styles.projectCardDuration}>{project.range}</span>
+                            <p className={styles.projectCardDesc}>{project.shortDescription}</p>
                         </div>
                     </Link>
                 ))}

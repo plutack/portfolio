@@ -1,9 +1,7 @@
 import fs from "fs";
-import { join} from 'path';
-
-const SVG_PATH = join(process.cwd(),'public','svgs')
+import { join } from "path";
 
 export default function loadSvg(name: string) {
-    const filepath = join(SVG_PATH, `${name}.svg`);
+    const filepath = join(process.cwd(), "public", "svgs", `${name}.svg`);
     return fs.readFileSync(filepath, "utf8");
 }
