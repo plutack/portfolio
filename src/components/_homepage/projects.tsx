@@ -16,7 +16,7 @@ export default function ProjectsSection({ projects }: { projects: Project[] }) {
                 {visibleProjects.map((project, index) => (
                     <Link
                         key={project.slug}
-                        href={`/projects#${project.slug}`}
+                        href={`/projects/${project.slug}`}
                         className={styles.projectCard}
                     >
                         <div className={styles.projectCardImage}>

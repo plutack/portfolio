@@ -13,13 +13,13 @@ export default function Intro({ project }: { project: Project }) {
           I build reliable backend systems, APIs, web applications, and developer tools with Go, Python, and TypeScript.
         </p>
         <div className={styles.introActions}>
-          <a className={styles.primaryAction} href="#projects">View selected work</a>
+          <Link className={styles.primaryAction} href={`/projects/${project.slug}`}>View selected work</Link>
           <a className={styles.secondaryAction} href="#contact">Get in touch</a>
         </div>
       </div>
       <div className={styles.introVisual}>
         <div className={styles.introVisualLabel}>Selected project</div>
-        <Link className={styles.introProjectLink} href={`/projects#${project.slug}`}>
+        <Link className={styles.introProjectLink} href={`/projects/${project.slug}`}>
           <div className={styles.introImage}>
             <Image
               src={project.images[0]}

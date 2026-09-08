@@ -31,7 +31,7 @@ export default function Pager({
           {previousProjectSlug !== null ? (
             <a
               className={styles.leftButton}
-              href={`/projects#${previousProjectSlug}`}
+              href={`/projects/${previousProjectSlug}`}
               aria-label="Previous project"
             >
               <em aria-hidden="true" />
@@ -42,7 +42,7 @@ export default function Pager({
           {nextProjectSlug !== null ? (
             <a
               className={styles.rightButton}
-              href={`/projects#${nextProjectSlug}`}
+              href={`/projects/${nextProjectSlug}`}
               aria-label="Next project"
             >
               <em aria-hidden="true" />

@@ -14,7 +14,7 @@ export default function ProjectHolder({
   const visibleSkills = project.skills.slice(0, 5);
 
   return (
-    <a className={styles.projectHolder} href={`/projects#${projectSlug}`}>
+    <a className={styles.projectHolder} href={`/projects/${projectSlug}`}>
       <div className={styles.Image}>
         <Image
           src={project.images[0]}
