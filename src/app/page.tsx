@@ -14,7 +14,7 @@ import { SocialLinks } from "@/types";
 import scJson from "@/../_content/socials.json";
 import Intro from "@/components/_homepage/intro";
 
-const FEATURED_PROJECT_SLUG = "nadbooks";
+const FEATURED_PROJECT_SLUG = "wiretap";
 
 export default function Home() {
   const exparr = getAllExperiences();
