@@ -64,8 +64,7 @@ export default function Pager({
 
             <ImageSlider
               projectName={project.name}
-              image={project.images[currentImageIndex]}
-              totalImages={imageCount}
+              images={project.images}
               setImage={switchImage}
               index={currentImageIndex}
             />
