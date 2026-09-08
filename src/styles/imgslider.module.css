@@ -13,8 +13,24 @@
   background: var(--overlay-color);
 }
 
-.Images img {
+.Images img,
+.lightboxImage img {
   object-fit: contain;
+}
+
+.expandButton {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.expandButton:focus-visible {
+  outline: 2px solid var(--hover-color);
+  outline-offset: -3px;
 }
 
 .leftButton,
@@ -30,6 +46,7 @@
   background: transparent;
   cursor: pointer;
   opacity: 0.55;
+  z-index: 1;
   transition: opacity var(--base-transition-time) ease;
 }
 
@@ -92,6 +109,88 @@
   transform: scaleY(1.5);
 }
 
+.lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: none;
+  max-height: none;
+  margin: 0;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  border: 0;
+  background: rgba(35, 40, 49, 0.98);
+  color: var(--text-color);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 1rem;
+}
+
+.lightbox[open] {
+  display: grid;
+}
+
+.lightbox::backdrop {
+  background: rgba(20, 24, 31, 0.88);
+}
+
+.lightboxHeader,
+.lightboxControls {
+  display: flex;
+  align-items: center;
+}
+
+.lightboxHeader {
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.lightboxHeader span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lightboxHeader button,
+.lightboxControls button {
+  min-height: 40px;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  background: var(--overlay-color);
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.lightboxHeader button:hover,
+.lightboxHeader button:focus-visible,
+.lightboxControls button:hover,
+.lightboxControls button:focus-visible {
+  border-color: var(--hover-color);
+  outline: none;
+}
+
+.lightboxHeader button:active,
+.lightboxControls button:active {
+  transform: translateY(1px);
+}
+
+.lightboxImage {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.lightboxControls {
+  justify-content: center;
+  gap: 1rem;
+}
+
+.lightboxControls span {
+  min-width: 4rem;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
 @media (max-width: 680px) {
   .Images {
     aspect-ratio: 4 / 3;
@@ -101,5 +200,13 @@
   .rightButton {
     width: 28%;
     opacity: 0.85;
+  }
+
+  .lightbox {
+    padding: 0.75rem;
+  }
+
+  .lightboxHeader span {
+    font-size: 0.75rem;
   }
 }
