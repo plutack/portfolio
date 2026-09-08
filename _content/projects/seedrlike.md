@@ -8,6 +8,7 @@ skills:
   - "AlpineJS"
   - "TailwindCSS"
   - "Daisy UI"
+  - "Templ"
   - "Air"
   - "MySQL"
   - "sqlc"
@@ -16,22 +17,27 @@ skills:
 
 tags:
   - "Web App"
-  - "CRUD App"
-  - "Generative AI"
+  - "File Management"
+  - "Real-time"
 images:
-  - "/images/seedrlike/seedrlike.png"
+  - "/images/seedrlike/seedrlike-downloading.png"
+  - "/images/seedrlike/seedrlike-uploading.png"
 
-shortDescription: "A web app that lets you add magnet links and download torrents over HTTPS, with real-time progress streamed over websockets."
+shortDescription: "A self-hosted torrent-to-HTTPS web app with private accounts, built-in search, live transfer progress, optional ZIP packaging, and a responsive file manager."
 links:
   github: "https://github.com/plutack/seedrlike"
   live: "https://torrent.talut.xyz"
 ---
 
-Seedrlike is a personal replication of [seedr](https://seedr.cc). Add a magnet link and the torrent becomes available for download over HTTPS — no torrent client needed on the user's end. The codebase uses a MySQL database (managed with goose migrations and sqlc) to keep track of what has been or is being downloaded, and websockets push real-time updates — download progress, speed, and ETA — to drive an intuitive UI.
+Seedrlike is a self-hosted web app inspired by [Seedr](https://seedr.cc). Users can search for a torrent or paste a magnet link, let the server download and upload its contents, then retrieve the files over HTTPS without running a torrent client locally.
 
-Some key features of the project include:
+The redesigned interface works like a responsive file manager, with folder navigation, light and dark themes, active-transfer controls, and clear states for downloading, zipping, and uploading. Username and password authentication uses bcrypt and JWT-backed HTTP-only cookies, while stored files and live WebSocket updates are scoped to each signed-in user.
 
-- Torrent downloads initiated via magnet links
-- Websockets streaming real-time progress, speed, and ETA (including upload-stage events)
-- Download history for completed torrent folders
-- Dockerized and configurable via direnv/envrc
+## Features
+
+- Built-in torrent search with source, seeder, size, and name filtering
+- Magnet-link downloads with configurable concurrency and cancellation controls
+- Live progress, transferred size, speed, and ETA across download, ZIP, and upload stages
+- Optional ZIP packaging before files are uploaded to GoFile for HTTPS access
+- Account registration, login, logout, and user-scoped file libraries
+- Responsive folder browsing, file deletion, stale-content cleanup, and light or dark themes
