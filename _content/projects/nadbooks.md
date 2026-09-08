@@ -1,7 +1,7 @@
 ---
 name: "Nadbooks"
 date: "2025-08-01"
-range: "Aug 2024 - Present"
+range: "Aug 2025 - May 2025"
 skills:
   - "MySQL"
   - "Redis"
