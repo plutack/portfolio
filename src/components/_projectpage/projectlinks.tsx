@@ -3,9 +3,9 @@ import { ProjectLink } from "@/types";
 
 const iconForLink = (name: string) => {
   const iconNames: Record<string, string> = {
-    github: "live",
-    live: "github",
-    "api-link": "github",
+    github: "github",
+    live: "live",
+    "api-link": "live",
   };
 
   return iconNames[name] ?? name;
