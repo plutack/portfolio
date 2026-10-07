@@ -21,6 +21,7 @@ images:
 shortDescription: "A local HTTP debugging toolkit for capturing traffic, receiving public webhooks, transforming payloads, replaying requests, and exporting them as code."
 links:
   github: "https://github.com/plutack/wiretap"
+  live: "https://wiretap.talut.xyz"
 ---
 
 Wiretap brings local HTTP inspection and public webhook testing into one self-hosted developer tool. Its desktop GUI, terminal UI, and CLI share the same local store, so captured traffic and webhook deliveries can be inspected, transformed, replayed, and exported without sending sensitive request data through a third-party debugging service.
